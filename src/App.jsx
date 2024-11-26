@@ -26,7 +26,7 @@ function App() {
         </a>
         */}
       </div>
-      <h1>Trading1501 Analysis</h1>
+      <h1>Trading1501 Filter Analysis</h1>
       <div className="card">
         <button>M15</button>
         {/*
