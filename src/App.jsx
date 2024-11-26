@@ -11,7 +11,7 @@ function App() {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   const { data, error, isLoading } = useSWR("https://nextjs-fastapi-henna.vercel.app/api/py/db", fetcher);
 
-  console.log(data)
+  //console.log(data) 
 
   return (
     <>
@@ -49,7 +49,7 @@ function App() {
       </p>
       */}
 
-      { data && data.map((pair, index) => (
+      { data && data.sort((a, b) => (a.symbol < b.symbol ? 1 : -1)).map((pair, index) => (
         <div>
           <h2>{index+1}&#41; {pair.symbol}</h2>
           <img key={index} className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"M15.png?t="+Date.now()} />
