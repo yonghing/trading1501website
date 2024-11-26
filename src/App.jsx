@@ -3,9 +3,15 @@ import reactLogo from './assets/react.svg'
 import trading1501Logo from './assets/TRADING1501.png'
 import viteLogo from '/vite.svg'
 import './App.css'
+import useSWR from "swr";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+
+  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  const { data, error, isLoading } = useSWR("https://nextjs-fastapi-henna.vercel.app/api/py/db", fetcher);
+
+  console.log(data)
 
   return (
     <>
@@ -22,19 +28,34 @@ function App() {
       </div>
       <h1>Trading1501 Analysis</h1>
       <div className="card">
+        <button>M15</button>
+        {/*
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
-        </button>        
+        </button>  
+        */}
+        {/*      
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
+        */}
       </div>
+      {/*
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      */}
+
+      { data && data.map((pair, index) => (
+        <div>
+          <h2>{index+1}&#41; {pair.symbol}</h2>
+          <img key={index} className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"M15.png?t="+Date.now()} />
+        </div>
+      ))}
+
       <div>
           <img className="responsive-image" src={"https://server1501.cloud/charts/XAUUSDM15.png?t="+Date.now()} />
       </div>
