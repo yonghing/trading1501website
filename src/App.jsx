@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <div>
-        <img src={trading1501Logo} className="logo site" alt="Trading1501 logo" />
+        <img src={trading1501Logo} className="logo" alt="Trading1501 logo" />
         {/*
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -25,6 +25,9 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>        
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
@@ -32,6 +35,9 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <div>
+          <img className="responsive-image" src={"https://server1501.cloud/charts/XAUUSDM15.png?t="+Date.now()} />
+      </div>
     </>
   )
 }

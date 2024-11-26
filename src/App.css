@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+
+.responsive-image {
+  width: 100%;
+  height: auto;
+}
