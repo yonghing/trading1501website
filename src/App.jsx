@@ -56,9 +56,6 @@ function App() {
         </div>
       ))}
 
-      <div>
-          <img className="responsive-image" src={"https://server1501.cloud/charts/XAUUSDM15.png?t="+Date.now()} />
-      </div>
     </>
   )
 }
