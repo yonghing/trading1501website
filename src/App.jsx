@@ -30,7 +30,7 @@ function App() {
       </div>
       <h1>Trading1501 Filter Analysis</h1>
       <div className="card">
-        <button onClick={() => setPeriod(0)}>
+        <button autoFocus={!period} onClick={() => setPeriod(0)}>
           M15
         </button>
         <button onClick={() => setPeriod(1)}>
