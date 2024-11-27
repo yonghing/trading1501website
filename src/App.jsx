@@ -130,6 +130,12 @@ function App() {
         <img width="25" style={{verticalAlign: "middle"}} src={reactLogo} alt="React logo" />
       </div>
 
+      <div>
+        <h3>Jobs Worldwide</h3>
+        <span><a href="https://www.linkedin.com/jobs/python-jobs-worldwide">Python Jobs in Worldwide</a></span><br/>
+        <span><a href="https://www.linkedin.com/jobs/react-jobs-worldwide">React Jobs in Worldwide</a></span>
+      </div>
+
 
 
     </>
