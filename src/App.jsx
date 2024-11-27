@@ -133,7 +133,7 @@ function App() {
       <div>
         <h3>Jobs Worldwide</h3>
         <span><a href="https://www.linkedin.com/jobs/python-jobs-worldwide">Python Jobs in Worldwide</a></span><br/>
-        <span><a href="https://www.linkedin.com/jobs/react-jobs-worldwide">React Jobs in Worldwide</a></span>
+        <span><a href="https://www.linkedin.com/jobs/javascript-jobs-worldwide">JavaScript Jobs in Worldwide</a></span>
       </div>
 
 
