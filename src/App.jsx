@@ -62,7 +62,7 @@ function App() {
       { isLoading && <h2>Loading...</h2> }
 
       { (period === 0) && data && data.sort((a, b) => (a.symbol < b.symbol ? 1 : -1)).map((pair, index) => (
-        <div>
+        <div key={index+1} >
           <h2>{index+1}&#41; {pair.symbol} 
           {(() => {
             switch (period) {
@@ -77,12 +77,12 @@ function App() {
             }
           })()}
           </h2>
-          <img key={index} className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"M15.png?t="+Date.now()} />
+          <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"M15.png?t="+Date.now()} />
         </div>
       ))}
 
       { (period === 1) && data && data.sort((a, b) => (a.symbol < b.symbol ? 1 : -1)).map((pair, index) => (
-        <div>
+        <div key={index+1} >
           <h2>{index+1}&#41; {pair.symbol} 
           {(() => {
             switch (period) {
@@ -97,12 +97,12 @@ function App() {
             }
           })()}
           </h2>
-          <img key={index} className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"H4.png?t="+Date.now()} />
+          <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"H4.png?t="+Date.now()} />
         </div>
       ))}
 
       { (period === 2) && data && data.sort((a, b) => (a.symbol < b.symbol ? 1 : -1)).map((pair, index) => (
-        <div>
+        <div key={index+1} >
           <h2>{index+1}&#41; {pair.symbol} 
           {(() => {
             switch (period) {
