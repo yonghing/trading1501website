@@ -13,6 +13,8 @@ function App() {
   const { data, error, isLoading } = useSWR("https://nextjs-fastapi-henna.vercel.app/api/py/db", fetcher);
 
   //console.log(data) 
+  //console.log(location.search);
+  //console.log(location.href.split('?')[0]);
 
   return (
     <>
@@ -28,6 +30,12 @@ function App() {
         </a>
         */}
       </div>
+
+{
+      location.search && location.search.includes("query=fastapi") ?
+      (<><a href={location.href.split('?')[0]}>Go to Homepage</a></>)
+      : 
+      (<><a href={location.href.split('?')[0]+'?query=fastapi'}>Focus on FastAPI section</a>
       <h1>Trading1501 Filter Analysis</h1>
       <div className="card">
         <button autoFocus={!period} onClick={() => setPeriod(0)}>
@@ -39,26 +47,15 @@ function App() {
         <button onClick={() => setPeriod(2)}>
           Daily
         </button>
-        {/*
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>  
-        */}
-        {/*      
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-        */}
       </div>
-      {/*
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      */}
+      </>)
+}
 
+{
+      location.search && location.search.includes("query=fastapi") ?
+      (<><h2>page in progress. coming soon.</h2></>)
+      : 
+      (<>
       { isLoading && <h2>Loading...</h2> }
 
       { (period === 0) && data && data.sort((a, b) => (a.symbol < b.symbol ? 1 : -1)).map((pair, index) => (
@@ -120,6 +117,9 @@ function App() {
           <img key={index} className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"D1.png?t="+Date.now()} />
         </div>
       ))}
+      </>)
+
+}
 
       <p>
         <span>&#9993;</span> ai@trading1501.com
@@ -135,8 +135,6 @@ function App() {
         <span><a href="https://www.linkedin.com/jobs/python-jobs-worldwide">Python Jobs in Worldwide</a></span><br/>
         <span><a href="https://www.linkedin.com/jobs/javascript-jobs-worldwide">JavaScript Jobs in Worldwide</a></span>
       </div>
-
-
 
     </>
   )
