@@ -53,7 +53,23 @@ function App() {
 
 {
       location.search && location.search.includes("query=fastapi") ?
-      (<><h2>page in progress. coming soon.</h2></>)
+      (<>
+        <h2>The Power of FastAPI: </h2>
+        <div>
+          <ul>
+            <li>Fast Performance - FastAPI is built on top of well-established libraries - Starlette and Pydantic.</li>
+            <li>Fast to Code - FastAPI's syntax and methodology are understandable to developers who are familiar with Python.</li>
+            <li>Asynchronous Server Gateway Interface (ASGI) support. </li>
+            <li>Built-in OpenAPI spec (Swagger).</li>
+            <li>Excellent choice for developing API-centric applications.</li>
+          </ul>
+        </div>
+        <h2>Demo of CRUD app of FastAPI:</h2>
+        <div>
+          <p>Backend(API docs) URL: <a target="_blank" href="https://crud-fastapi-dusky.vercel.app/api/py/docs">https://crud-fastapi-dusky.vercel.app/api/py/docs</a></p>
+          <p>Frontend(Demo app) URL: <a target="_blank" href="https://react-crud-fastapi-app.vercel.app">https://react-crud-fastapi-app.vercel.app</a> </p>
+        </div>
+      </>)
       : 
       (<>
       { isLoading && <h2>Loading...</h2> }
@@ -133,7 +149,8 @@ function App() {
       <div>
         <h3>Jobs Worldwide</h3>
         <span><a href="https://www.linkedin.com/jobs/python-jobs-worldwide">Python Jobs in Worldwide</a></span><br/>
-        <span><a href="https://www.linkedin.com/jobs/javascript-jobs-worldwide">JavaScript Jobs in Worldwide</a></span>
+        <span><a href="https://www.linkedin.com/jobs/javascript-jobs-worldwide">JavaScript Jobs in Worldwide</a></span><br/>
+        <span><a href="https://survey.stackoverflow.co/2024/technology">Most popular technologies</a></span>
       </div>
 
     </>
