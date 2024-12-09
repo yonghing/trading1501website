@@ -13,6 +13,13 @@ function App() {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   const { data, error, isLoading } = useSWR("https://nextjs-fastapi-henna.vercel.app/api/py/db", fetcher);
 
+  const goToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+    });
+  };
+
   //console.log(data) 
   //console.log(location.search);
   //console.log(location.href.split('?')[0]);
@@ -90,7 +97,7 @@ function App() {
                 return null
             }
           })()}
-          <button className="triple-button" onClick={() => {setPeriod(3); setPair(pair.symbol);}}>triple</button>
+          <button className="triple-button" onClick={() => {setPeriod(3); setPair(pair.symbol); goToTop();}}>triple</button>
           </h2>
           <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"M15.png?t="+Date.now()} />
         </div>
@@ -111,7 +118,7 @@ function App() {
                 return null
             }
           })()}
-          <button className="triple-button" onClick={() => {setPeriod(3); setPair(pair.symbol);}}>triple</button>
+          <button className="triple-button" onClick={() => {setPeriod(3); setPair(pair.symbol); goToTop();}}>triple</button>
           </h2>
           <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"H4.png?t="+Date.now()} />
         </div>
@@ -132,7 +139,7 @@ function App() {
                 return null
             }
           })()}
-          <button className="triple-button" onClick={() => {setPeriod(3); setPair(pair.symbol);}}>triple</button>
+          <button className="triple-button" onClick={() => {setPeriod(3); setPair(pair.symbol); goToTop();}}>triple</button>
           </h2>
           <img key={index} className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"D1.png?t="+Date.now()} />
         </div>
