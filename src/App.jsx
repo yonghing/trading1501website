@@ -8,6 +8,7 @@ import useSWR from "swr";
 function App() {
   const [count, setCount] = useState(0);
   const [period, setPeriod] = useState(0);
+  const [pair, setPair] = useState("");
 
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   const { data, error, isLoading } = useSWR("https://nextjs-fastapi-henna.vercel.app/api/py/db", fetcher);
@@ -89,6 +90,7 @@ function App() {
                 return null
             }
           })()}
+          <button className="triple-button" onClick={() => {setPeriod(3); setPair(pair.symbol);}}>triple</button>
           </h2>
           <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"M15.png?t="+Date.now()} />
         </div>
@@ -109,6 +111,7 @@ function App() {
                 return null
             }
           })()}
+          <button className="triple-button" onClick={() => {setPeriod(3); setPair(pair.symbol);}}>triple</button>
           </h2>
           <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"H4.png?t="+Date.now()} />
         </div>
@@ -129,10 +132,24 @@ function App() {
                 return null
             }
           })()}
+          <button className="triple-button" onClick={() => {setPeriod(3); setPair(pair.symbol);}}>triple</button>
           </h2>
           <img key={index} className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"D1.png?t="+Date.now()} />
         </div>
       ))}
+
+
+      { (period === 3) && 
+        <>
+        <h2>{pair} triple charts</h2>
+        <h2>{pair} Daily</h2>
+        <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair+"D1.png?t="+Date.now()} />
+        <h2>{pair} H4</h2>
+        <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair+"H4.png?t="+Date.now()} />
+        <h2>{pair} M15</h2>
+        <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair+"M15.png?t="+Date.now()} />
+        </>
+      }
       </>)
 
 }
