@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import trading1501Logo from './assets/TRADING1501.png'
 import viteLogo from '/vite.svg'
@@ -20,6 +20,16 @@ function App() {
     });
   };
 
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search)
+    if (searchParams.get('pair')) {
+      //console.log(searchParams.get('pair'))
+      setPeriod(3);
+      setPair(searchParams.get('pair'));
+    }
+
+  }, [location.search]);
+
   //console.log(data) 
   //console.log(location.search);
   //console.log(location.href.split('?')[0]);
@@ -40,7 +50,7 @@ function App() {
       </div>
 
 {
-      location.search && location.search.includes("query=fastapi") ?
+      location.search && (location.search.includes("query=fastapi") || location.search.includes("pair="))?
       (<><a href={location.href.split('?')[0]}>Go to Homepage</a></>)
       : 
       (<><a href={location.href.split('?')[0]+'?query=fastapi'}>Focus on FastAPI section</a>
@@ -97,7 +107,7 @@ function App() {
                 return null
             }
           })()}
-          <button className="triple-button" onClick={() => {setPeriod(3); setPair(pair.symbol); goToTop();}}>triple</button>
+          <button className="triple-button" onClick={() => {window.open(location.href.split('?')[0]+'?pair='+pair.symbol, "_blank");}}>triple</button>
           </h2>
           <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"M15.png?t="+Date.now()} />
         </div>
@@ -118,7 +128,7 @@ function App() {
                 return null
             }
           })()}
-          <button className="triple-button" onClick={() => {setPeriod(3); setPair(pair.symbol); goToTop();}}>triple</button>
+          <button className="triple-button" onClick={() => {window.open(location.href.split('?')[0]+'?pair='+pair.symbol, "_blank");}}>triple</button>
           </h2>
           <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"H4.png?t="+Date.now()} />
         </div>
@@ -139,7 +149,7 @@ function App() {
                 return null
             }
           })()}
-          <button className="triple-button" onClick={() => {setPeriod(3); setPair(pair.symbol); goToTop();}}>triple</button>
+          <button className="triple-button" onClick={() => {window.open(location.href.split('?')[0]+'?pair='+pair.symbol, "_blank");}}>triple</button>
           </h2>
           <img key={index} className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"D1.png?t="+Date.now()} />
         </div>
