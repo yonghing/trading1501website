@@ -87,6 +87,9 @@ function App() {
         </button>
         <button onClick={() => setSymbol("CHF")}>
           CHF
+        </button>  
+        <button onClick={() => setSymbol("JPY")}>
+          JPY
         </button>    
         <button onClick={() => setSymbol("AUD")}>
           AUD
