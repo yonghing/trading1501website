@@ -34,7 +34,7 @@
 }
 
 .card {
-  position: sticky;
+  /* position: sticky; */
   top: 0;
   padding: 0.5em;
 }
