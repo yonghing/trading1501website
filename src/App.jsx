@@ -6,9 +6,11 @@ import './App.css'
 import useSWR from "swr";
 
 function App() {
-  const [count, setCount] = useState(0);
+  //const [count, setCount] = useState(0);
   const [period, setPeriod] = useState(0);
   const [pair, setPair] = useState("");
+  const [symbol, setSymbol] = useState("");
+
 
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   const { data, error, isLoading } = useSWR("https://nextjs-fastapi-henna.vercel.app/api/py/db", fetcher);
@@ -19,6 +21,10 @@ function App() {
         behavior: 'smooth',
     });
   };
+
+  const dataSymbol = data && data.filter((d) => d.symbol.toLowerCase().includes(symbol.toLowerCase()));
+
+  //console.log(dataSymbol)
 
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search)
@@ -56,15 +62,41 @@ function App() {
       (<><a href={location.href.split('?')[0]+'?query=fastapi'}>Focus on FastAPI section</a>
       <h1>Trading1501 Filter Analysis</h1>
       <div className="card">
-        <button autoFocus={!period} onClick={() => setPeriod(0)}>
+        <button autoFocus={!period} onClick={() => {setPeriod(0); setSymbol("")}}>
           M15
         </button>
-        <button onClick={() => setPeriod(1)}>
+        <button onClick={() => {setPeriod(1); setSymbol("")}}>
           H4
         </button>
-        <button onClick={() => setPeriod(2)}>
+        <button onClick={() => {setPeriod(2); setSymbol("")}}>
           Daily
         </button>
+      </div>
+      <div className="card">
+        <button onClick={() => setSymbol("USD")}>
+          USD
+        </button>
+        <button onClick={() => setSymbol("EUR")}>
+          EUR
+        </button>
+        <button onClick={() => setSymbol("GBP")}>
+          GBP
+        </button>
+        <button onClick={() => setSymbol("CAD")}>
+          CAD
+        </button>
+        <button onClick={() => setSymbol("CHF")}>
+          CHF
+        </button>    
+        <button onClick={() => setSymbol("AUD")}>
+          AUD
+        </button>
+        <button onClick={() => setSymbol("NZD")}>
+          NZD
+        </button>        
+        <button onClick={() => setSymbol("ETHER")}>
+          ETHEREUM
+        </button>    
       </div>
       </>)
 }
@@ -92,7 +124,7 @@ function App() {
       (<>
       { isLoading && <h2>Loading...</h2> }
 
-      { (period === 0) && data && data.sort((a, b) => (a.symbol < b.symbol ? 1 : -1)).map((pair, index) => (
+      { (period === 0) && dataSymbol && dataSymbol.sort((a, b) => (a.symbol < b.symbol ? 1 : -1)).map((pair, index) => (
         <div key={index+1} >
           <h2>{index+1}&#41; {pair.symbol} 
           {(() => {
@@ -113,7 +145,7 @@ function App() {
         </div>
       ))}
 
-      { (period === 1) && data && data.sort((a, b) => (a.symbol < b.symbol ? 1 : -1)).map((pair, index) => (
+      { (period === 1) && dataSymbol && dataSymbol.sort((a, b) => (a.symbol < b.symbol ? 1 : -1)).map((pair, index) => (
         <div key={index+1} >
           <h2>{index+1}&#41; {pair.symbol} 
           {(() => {
@@ -134,7 +166,7 @@ function App() {
         </div>
       ))}
 
-      { (period === 2) && data && data.sort((a, b) => (a.symbol < b.symbol ? 1 : -1)).map((pair, index) => (
+      { (period === 2) && dataSymbol && dataSymbol.sort((a, b) => (a.symbol < b.symbol ? 1 : -1)).map((pair, index) => (
         <div key={index+1} >
           <h2>{index+1}&#41; {pair.symbol} 
           {(() => {

@@ -36,7 +36,7 @@
 .card {
   position: sticky;
   top: 0;
-  padding: 2em;
+  padding: 0.5em;
 }
 
 .read-the-docs {
