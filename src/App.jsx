@@ -11,7 +11,6 @@ function App() {
   const [pair, setPair] = useState("");
   const [symbol, setSymbol] = useState("");
 
-
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   const { data, error, isLoading } = useSWR("https://nextjs-fastapi-henna.vercel.app/api/py/db", fetcher);
 
@@ -22,7 +21,13 @@ function App() {
     });
   };
 
-  const dataSymbol = data && data.filter((d) => d.symbol.toLowerCase().includes(symbol.toLowerCase()));
+  const dataSymbol =  symbol === "UP" ?
+                      data && data.filter((d) => d.ma80 > d.ma480)
+                      :
+                      symbol === "DOWN" ?
+                      data && data.filter((d) => d.ma80 < d.ma480)
+                      :
+                      data && data.filter((d) => d.symbol.toLowerCase().includes(symbol.toLowerCase()))
 
   //console.log(dataSymbol)
 
@@ -99,7 +104,13 @@ function App() {
         </button>        
         <button onClick={() => setSymbol("ETHER")}>
           ETHEREUM
-        </button>    
+        </button> 
+        <button onClick={() => setSymbol("UP")}>
+          UP
+        </button>  
+        <button onClick={() => setSymbol("DOWN")}>
+          DOWN
+        </button>     
       </div>
       </>)
 }
