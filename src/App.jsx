@@ -27,6 +27,18 @@ function App() {
                       symbol === "DOWN" ?
                       data && data.filter((d) => d.ma80 < d.ma480)
                       :
+                      symbol === "UGU" ?
+                      data && data.filter((d) => (d.ma5 > d.ma30) && (d.ma80 > d.ma480))
+                      :
+                      symbol === "UGD" ?
+                      data && data.filter((d) => (d.ma5 < d.ma30) && (d.ma80 > d.ma480))
+                      :
+                      symbol === "DGU" ?
+                      data && data.filter((d) => (d.ma5 > d.ma30) && (d.ma80 < d.ma480))
+                      :
+                      symbol === "DGD" ?
+                      data && data.filter((d) => (d.ma5 < d.ma30) && (d.ma80 < d.ma480))
+                      :
                       data && data.filter((d) => d.symbol.toLowerCase().includes(symbol.toLowerCase()))
 
   //console.log(dataSymbol)
@@ -111,6 +123,20 @@ function App() {
         <button onClick={() => setSymbol("DOWN")}>
           DOWN
         </button>     
+      </div>
+      <div className="card">
+        <button onClick={() => setSymbol("UGU")}>
+          UP-GD-UP
+        </button>
+        <button onClick={() => setSymbol("UGD")}>
+          UP-GD-DOWN
+        </button> 
+        <button onClick={() => setSymbol("DGD")}>
+          DOWN-GD-DOWN
+        </button>
+        <button onClick={() => setSymbol("DGU")}>
+          DOWN-GD-UP
+        </button>   
       </div>
       </>)
 }
