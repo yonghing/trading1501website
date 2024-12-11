@@ -21,6 +21,13 @@ function App() {
     });
   };
 
+  const upData = data && data.filter((d) => d.ma80 > d.ma480);
+  const downData = data && data.filter((d) => d.ma80 < d.ma480);
+  const uguData = data && data.filter((d) => (d.ma5 > d.ma30) && (d.ma80 > d.ma480));
+  const ugdData = data && data.filter((d) => (d.ma5 < d.ma30) && (d.ma80 > d.ma480));
+  const dguData = data && data.filter((d) => (d.ma5 > d.ma30) && (d.ma80 < d.ma480));
+  const dgdData = data && data.filter((d) => (d.ma5 < d.ma30) && (d.ma80 < d.ma480));
+
   const dataSymbol =  symbol === "UP" ?
                       data && data.filter((d) => d.ma80 > d.ma480)
                       :
@@ -118,24 +125,24 @@ function App() {
           ETHEREUM
         </button> 
         <button onClick={() => setSymbol("UP")}>
-          UP
+          UP ({upData.length})
         </button>  
         <button onClick={() => setSymbol("DOWN")}>
-          DOWN
+          DOWN ({downData.length})
         </button>     
       </div>
       <div className="card">
         <button onClick={() => setSymbol("UGU")}>
-          UP-GD-UP
+          UP-GD-UP ({uguData.length})
         </button>
         <button onClick={() => setSymbol("UGD")}>
-          UP-GD-DOWN
+          UP-GD-DOWN ({ugdData.length})
         </button> 
         <button onClick={() => setSymbol("DGD")}>
-          DOWN-GD-DOWN
+          DOWN-GD-DOWN ({dgdData.length})
         </button>
         <button onClick={() => setSymbol("DGU")}>
-          DOWN-GD-UP
+          DOWN-GD-UP ({dguData.length})
         </button>   
       </div>
       </>)
