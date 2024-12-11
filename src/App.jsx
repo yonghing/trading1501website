@@ -125,24 +125,24 @@ function App() {
           ETHEREUM
         </button> 
         <button onClick={() => setSymbol("UP")}>
-          UP ({upData.length})
+          UP ({upData && upData.length})
         </button>  
         <button onClick={() => setSymbol("DOWN")}>
-          DOWN ({downData.length})
+          DOWN ({downData && downData.length})
         </button>     
       </div>
       <div className="card">
         <button onClick={() => setSymbol("UGU")}>
-          UP-GD-UP ({uguData.length})
+          UP-GD-UP ({uguData && uguData.length})
         </button>
         <button onClick={() => setSymbol("UGD")}>
-          UP-GD-DOWN ({ugdData.length})
+          UP-GD-DOWN ({ugdData && ugdData.length})
         </button> 
         <button onClick={() => setSymbol("DGD")}>
-          DOWN-GD-DOWN ({dgdData.length})
+          DOWN-GD-DOWN ({dgdData && dgdData.length})
         </button>
         <button onClick={() => setSymbol("DGU")}>
-          DOWN-GD-UP ({dguData.length})
+          DOWN-GD-UP ({dguData && dguData.length})
         </button>   
       </div>
       </>)
