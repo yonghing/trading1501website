@@ -23,10 +23,10 @@ function App() {
 
   const upData = data && data.filter((d) => d.ma80 > d.ma480);
   const downData = data && data.filter((d) => d.ma80 < d.ma480);
-  const uguData = data && data.filter((d) => (d.ma5 > d.ma30) && (d.ma80 > d.ma480));
-  const ugdData = data && data.filter((d) => (d.ma5 < d.ma30) && (d.ma80 > d.ma480));
-  const dguData = data && data.filter((d) => (d.ma5 > d.ma30) && (d.ma80 < d.ma480));
-  const dgdData = data && data.filter((d) => (d.ma5 < d.ma30) && (d.ma80 < d.ma480));
+  const uguData = data && data.filter((d) => (d.ma30 > d.ma80) && (d.ma80 > d.ma480));
+  const ugdData = data && data.filter((d) => (d.ma30 < d.ma80) && (d.ma80 > d.ma480));
+  const dguData = data && data.filter((d) => (d.ma30 > d.ma80) && (d.ma80 < d.ma480));
+  const dgdData = data && data.filter((d) => (d.ma30 < d.ma80) && (d.ma80 < d.ma480));
 
   const dataSymbol =  symbol === "UP" ?
                       data && data.filter((d) => d.ma80 > d.ma480)
@@ -35,16 +35,16 @@ function App() {
                       data && data.filter((d) => d.ma80 < d.ma480)
                       :
                       symbol === "UGU" ?
-                      data && data.filter((d) => (d.ma5 > d.ma30) && (d.ma80 > d.ma480))
+                      data && data.filter((d) => (d.ma30 > d.ma80) && (d.ma80 > d.ma480))
                       :
                       symbol === "UGD" ?
-                      data && data.filter((d) => (d.ma5 < d.ma30) && (d.ma80 > d.ma480))
+                      data && data.filter((d) => (d.ma30 < d.ma80) && (d.ma80 > d.ma480))
                       :
                       symbol === "DGU" ?
-                      data && data.filter((d) => (d.ma5 > d.ma30) && (d.ma80 < d.ma480))
+                      data && data.filter((d) => (d.ma30 > d.ma80) && (d.ma80 < d.ma480))
                       :
                       symbol === "DGD" ?
-                      data && data.filter((d) => (d.ma5 < d.ma30) && (d.ma80 < d.ma480))
+                      data && data.filter((d) => (d.ma30 < d.ma80) && (d.ma80 < d.ma480))
                       :
                       data && data.filter((d) => d.symbol.toLowerCase().includes(symbol.toLowerCase()))
 
@@ -133,16 +133,16 @@ function App() {
       </div>
       <div className="card">
         <button onClick={() => setSymbol("UGU")}>
-          UP-GD-UP ({uguData && uguData.length})
+          UP-H4-UP ({uguData && uguData.length})
         </button>
         <button onClick={() => setSymbol("UGD")}>
-          UP-GD-DOWN ({ugdData && ugdData.length})
+          UP-H4-DOWN ({ugdData && ugdData.length})
         </button> 
         <button onClick={() => setSymbol("DGD")}>
-          DOWN-GD-DOWN ({dgdData && dgdData.length})
+          DOWN-H4-DOWN ({dgdData && dgdData.length})
         </button>
         <button onClick={() => setSymbol("DGU")}>
-          DOWN-GD-UP ({dguData && dguData.length})
+          DOWN-H4-UP ({dguData && dguData.length})
         </button>   
       </div>
       </>)
