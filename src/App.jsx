@@ -157,6 +157,12 @@ function App() {
             <li><a href="https://www.fool.com/terms/a/algorithmic-trading/" target="_blank">What Is Algorithmic Trading?</a></li>
           </ul>
         </div>
+        <h2>Algorithmic Trading Platforms: </h2>
+        <div>
+          <ul>
+            <li><a href="https://www.quantconnect.com/" target="_blank">QuantConnect</a></li>
+          </ul>
+        </div>
       </>)
       : 
       location.search && location.search.includes("query=fastapi") ?
