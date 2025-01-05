@@ -80,10 +80,10 @@ function App() {
       </div>
 
 {
-      location.search && (location.search.includes("query=fastapi") || location.search.includes("pair="))?
+      location.search && (location.search.includes("query=algotrading") || location.search.includes("query=fastapi") || location.search.includes("pair="))?
       (<><a href={location.href.split('?')[0]}>Go to Homepage</a></>)
       : 
-      (<><a href={location.href.split('?')[0]+'?query=fastapi'}>Focus on FastAPI section</a>
+      (<><a href={location.href.split('?')[0]+'?query=algotrading'}>Algorithmic Trading section</a><span>  &#8226; </span><a href={location.href.split('?')[0]+'?query=fastapi'}>Focus on FastAPI section</a>
       <h1>Trading1501 Filter Analysis</h1>
       <div className="card">
         <button autoFocus={!period} onClick={() => {setPeriod(0); setSymbol("")}}>
@@ -149,6 +149,16 @@ function App() {
 }
 
 {
+      location.search && location.search.includes("query=algotrading") ?
+      (<>
+        <h2>Algo Trading Resources: </h2>
+        <div>
+          <ul>
+            <li><a href="https://www.fool.com/terms/a/algorithmic-trading/" target="_blank">What Is Algorithmic Trading?</a></li>
+          </ul>
+        </div>
+      </>)
+      : 
       location.search && location.search.includes("query=fastapi") ?
       (<>
         <h2>The Power of FastAPI: </h2>
