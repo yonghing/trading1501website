@@ -151,16 +151,23 @@ function App() {
 {
       location.search && location.search.includes("query=algotrading") ?
       (<>
-        <h2>Algo Trading Resources: </h2>
+        <h2>Algo Trading Web Resources: </h2>
         <div>
           <ul>
             <li><a href="https://www.fool.com/terms/a/algorithmic-trading/" target="_blank">What Is Algorithmic Trading?</a></li>
+            <li><a href="https://epchan.com/financial-machine-learning" target="_blank">Financial Machine Learning</a></li>
           </ul>
         </div>
         <h2>Algorithmic Trading Platforms: </h2>
         <div>
           <ul>
             <li><a href="https://www.quantconnect.com/" target="_blank">QuantConnect</a></li>
+          </ul>
+        </div>
+        <h2>Algorithmic Trading Books: </h2>
+        <div>
+          <ul>
+            <li><a href="https://epchan.com/books" target="_blank">Ernest P. Chan</a></li>
           </ul>
         </div>
       </>)
