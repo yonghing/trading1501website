@@ -162,6 +162,7 @@ function App() {
         <div>
           <ul>
             <li><a href="https://www.quantconnect.com/" target="_blank">QuantConnect</a></li>
+            <li><a href="https://www.mql5.com/" target="_blank">MQL5</a></li>
           </ul>
         </div>
         <h2>Algorithmic Trading Books: </h2>
