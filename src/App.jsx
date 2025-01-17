@@ -165,6 +165,12 @@ function App() {
             <li><a href="https://www.mql5.com/" target="_blank">MQL5</a></li>
           </ul>
         </div>
+        <h2>Financial Machine Learning Frameworks: </h2>
+        <div>
+          <ul>
+            <li><a href="https://alphapy.readthedocs.io/" target="_blank">AlphaPy</a></li>
+          </ul>
+        </div>
         <h2>Algorithmic Trading Books: </h2>
         <div>
           <ul>
