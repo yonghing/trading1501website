@@ -23,10 +23,16 @@ function App() {
 
   const upData = data && data.filter((d) => d.ma80 > d.ma480);
   const downData = data && data.filter((d) => d.ma80 < d.ma480);
+
   const uguData = data && data.filter((d) => (d.ma30 > d.ma80) && (d.ma80 > d.ma480));
   const ugdData = data && data.filter((d) => (d.ma30 < d.ma80) && (d.ma80 > d.ma480));
   const dguData = data && data.filter((d) => (d.ma30 > d.ma80) && (d.ma80 < d.ma480));
   const dgdData = data && data.filter((d) => (d.ma30 < d.ma80) && (d.ma80 < d.ma480));
+
+  const uhuData = data && data.filter((d) => (d.ma5 > d.ma30) && (d.ma30 > d.ma80));
+  const uhdData = data && data.filter((d) => (d.ma5 < d.ma30) && (d.ma30 > d.ma80));
+  const dhuData = data && data.filter((d) => (d.ma5 > d.ma30) && (d.ma30 < d.ma80));
+  const dhdData = data && data.filter((d) => (d.ma5 < d.ma30) && (d.ma30 < d.ma80));
 
   const dataSymbol =  symbol === "UP" ?
                       data && data.filter((d) => d.ma80 > d.ma480)
@@ -45,6 +51,18 @@ function App() {
                       :
                       symbol === "DGD" ?
                       data && data.filter((d) => (d.ma30 < d.ma80) && (d.ma80 < d.ma480))
+                      :
+                      symbol === "UHU" ?
+                      data && data.filter((d) => (d.ma5 > d.ma30) && (d.ma30 > d.ma80))
+                      :
+                      symbol === "UHD" ?
+                      data && data.filter((d) => (d.ma5 < d.ma30) && (d.ma30 > d.ma80))
+                      :
+                      symbol === "DHU" ?
+                      data && data.filter((d) => (d.ma5 > d.ma30) && (d.ma30 < d.ma80))
+                      :
+                      symbol === "DHD" ?
+                      data && data.filter((d) => (d.ma5 < d.ma30) && (d.ma30 < d.ma80))                      
                       :
                       data && data.filter((d) => d.symbol.toLowerCase().includes(symbol.toLowerCase()))
 
@@ -143,6 +161,20 @@ function App() {
         </button>
         <button onClick={() => setSymbol("DGU")}>
           D-DOWN-H4-UP ({dguData && dguData.length})
+        </button>   
+      </div>
+      <div className="card">
+        <button onClick={() => setSymbol("UHU")}>
+          H4-UP-H1-UP ({uhuData && uhuData.length})
+        </button>
+        <button onClick={() => setSymbol("UHD")}>
+          H4-UP-H1-DOWN ({uhdData && uhdData.length})
+        </button> 
+        <button onClick={() => setSymbol("DHD")}>
+          H4-DOWN-H1-DOWN ({dhdData && dhdData.length})
+        </button>
+        <button onClick={() => setSymbol("DHU")}>
+          H4-DOWN-H1-UP ({dhuData && dhuData.length})
         </button>   
       </div>
       </>)
