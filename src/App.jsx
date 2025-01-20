@@ -65,7 +65,7 @@ function App() {
                       data && data.filter((d) => (d.ma5 < d.ma30) && (d.ma30 < d.ma80))                      
                       :
                       symbol === "CRYPTO" ?
-                      data && data.filter((d) => d.symbol.toLowerCase().every((i => ['ethereum','bitcoin'].includes(i)))) 
+                      data && data.filter((d) => d.symbol.toLowerCase().includes("ethereum") || d.symbol.toLowerCase().includes("bitcoin")) 
                       :
                       data && data.filter((d) => d.symbol.toLowerCase().includes(symbol.toLowerCase()))
 
