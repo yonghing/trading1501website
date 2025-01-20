@@ -64,6 +64,9 @@ function App() {
                       symbol === "DHD" ?
                       data && data.filter((d) => (d.ma5 < d.ma30) && (d.ma30 < d.ma80))                      
                       :
+                      symbol === "CRYPTO" ?
+                      data && data.filter((d) => d.symbol.toLowerCase().includes("ethereum","bitcoin")) 
+                      :
                       data && data.filter((d) => d.symbol.toLowerCase().includes(symbol.toLowerCase()))
 
   //console.log(dataSymbol)
@@ -139,8 +142,8 @@ function App() {
         <button onClick={() => setSymbol("NZD")}>
           NZD
         </button>        
-        <button onClick={() => setSymbol("ETHER")}>
-          ETHEREUM
+        <button onClick={() => setSymbol("CRYPTO")}>
+          CRYPTO
         </button> 
         <button onClick={() => setSymbol("UP")}>
           D-UP ({upData && upData.length})
