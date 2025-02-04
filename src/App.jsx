@@ -111,10 +111,10 @@ function App() {
           M15
         </button>
         <button onClick={() => {setPeriod(1); setSymbol("")}}>
-          H4
+          H1
         </button>
         <button onClick={() => {setPeriod(2); setSymbol("")}}>
-          H1
+          D1
         </button>
       </div>
       <div className="card">
@@ -152,6 +152,7 @@ function App() {
           D-DOWN ({downData && downData.length})
         </button>     
       </div>
+      {/** 
       <div className="card">
         <button onClick={() => setSymbol("UGU")}>
           D-UP-H4-UP ({uguData && uguData.length})
@@ -180,6 +181,7 @@ function App() {
           H4-DOWN-H1-UP ({dhuData && dhuData.length})
         </button>   
       </div>
+      **/}
       </>)
 }
 
@@ -244,9 +246,9 @@ function App() {
               case 0:
                 return " M15"
               case 1:
-                return " H4"
+                return " H1"
               case 2:
-                return " Daily"
+                return " D1"
               default:
                 return null
             }
@@ -265,16 +267,16 @@ function App() {
               case 0:
                 return " M15"
               case 1:
-                return " H4"
+                return " H1"
               case 2:
-                return " Daily"
+                return " D1"
               default:
                 return null
             }
           })()}
           <button className="triple-button" onClick={() => {window.open(location.href.split('?')[0]+'?pair='+pair.symbol, "_blank");}}>triple</button>
           </h2>
-          <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"H4.png?t="+Date.now()} />
+          <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"H1.png?t="+Date.now()} />
         </div>
       ))}
 
@@ -286,16 +288,16 @@ function App() {
               case 0:
                 return " M15"
               case 1:
-                return " H4"
-              case 2:
                 return " H1"
+              case 2:
+                return " D1"
               default:
                 return null
             }
           })()}
           <button className="triple-button" onClick={() => {window.open(location.href.split('?')[0]+'?pair='+pair.symbol, "_blank");}}>triple</button>
           </h2>
-          <img key={index} className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"H1.png?t="+Date.now()} />
+          <img key={index} className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"D1.png?t="+Date.now()} />
         </div>
       ))}
 
@@ -303,10 +305,10 @@ function App() {
       { (period === 3) && 
         <>
         <h2>{pair} triple charts</h2>
+        <h2>{pair} D1</h2>
+        <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair+"D1.png?t="+Date.now()} />
         <h2>{pair} H1</h2>
         <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair+"H1.png?t="+Date.now()} />
-        <h2>{pair} H4</h2>
-        <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair+"H4.png?t="+Date.now()} />
         <h2>{pair} M15</h2>
         <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair+"M15.png?t="+Date.now()} />
         </>
