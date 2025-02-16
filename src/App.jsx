@@ -316,11 +316,11 @@ function App() {
       </>)
 
 }
-
+{/** 
       <p>
         <span>&#9993;</span> ai@trading1501.com
       </p>
-
+**/}
       <div>
         <span>This website is built with React.js </span>
         <img width="25" style={{verticalAlign: "middle"}} src={reactLogo} alt="React logo" />
