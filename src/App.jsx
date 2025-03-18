@@ -108,13 +108,13 @@ function App() {
       <h1>Trading1501 Filter Analysis</h1>
       <div className="card">
         <button autoFocus={!period} onClick={() => {setPeriod(0); setSymbol("")}}>
-          M15
-        </button>
-        <button onClick={() => {setPeriod(1); setSymbol("")}}>
           H1
         </button>
-        <button onClick={() => {setPeriod(2); setSymbol("")}}>
+        <button onClick={() => {setPeriod(1); setSymbol("")}}>
           D1
+        </button>
+        <button onClick={() => {setPeriod(2); setSymbol("")}}>
+          W1
         </button>
       </div>
       <div className="card">
