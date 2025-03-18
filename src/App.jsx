@@ -257,7 +257,7 @@ function App() {
           })()}
           <button className="triple-button" onClick={() => {window.open(location.href.split('?')[0]+'?pair='+pair.symbol, "_blank");}}>triple</button>
           </h2>
-          <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"M15.png?t="+Date.now()} />
+          <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"H1.png?t="+Date.now()} />
         </div>
       ))}
 
@@ -278,7 +278,7 @@ function App() {
           })()}
           <button className="triple-button" onClick={() => {window.open(location.href.split('?')[0]+'?pair='+pair.symbol, "_blank");}}>triple</button>
           </h2>
-          <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"H1.png?t="+Date.now()} />
+          <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"D1.png?t="+Date.now()} />
         </div>
       ))}
 
@@ -299,7 +299,7 @@ function App() {
           })()}
           <button className="triple-button" onClick={() => {window.open(location.href.split('?')[0]+'?pair='+pair.symbol, "_blank");}}>triple</button>
           </h2>
-          <img key={index} className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"D1.png?t="+Date.now()} />
+          <img key={index} className="responsive-image" src={"https://server1501.cloud/charts/"+pair.symbol+"W1.png?t="+Date.now()} />
         </div>
       ))}
 
@@ -307,12 +307,12 @@ function App() {
       { (period === 3) && 
         <>
         <h2>{pair} triple charts</h2>
+        <h2>{pair} W1</h2>
+        <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair+"W1.png?t="+Date.now()} />
         <h2>{pair} D1</h2>
         <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair+"D1.png?t="+Date.now()} />
         <h2>{pair} H1</h2>
         <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair+"H1.png?t="+Date.now()} />
-        <h2>{pair} M15</h2>
-        <img className="responsive-image" src={"https://server1501.cloud/charts/"+pair+"M15.png?t="+Date.now()} />
         </>
       }
       </>)
