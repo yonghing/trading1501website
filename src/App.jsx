@@ -145,12 +145,14 @@ function App() {
         <button onClick={() => setSymbol("CRYPTO")}>
           CRYPTO
         </button> 
+        {/** 
         <button onClick={() => setSymbol("UP")}>
           D-UP ({upData && upData.length})
         </button>  
         <button onClick={() => setSymbol("DOWN")}>
           D-DOWN ({downData && downData.length})
-        </button>     
+        </button>   
+        **/}  
       </div>
       {/** 
       <div className="card">
