@@ -246,11 +246,11 @@ function App() {
           {(() => {
             switch (period) {
               case 0:
-                return " M15"
-              case 1:
                 return " H1"
-              case 2:
+              case 1:
                 return " D1"
+              case 2:
+                return " W1"
               default:
                 return null
             }
